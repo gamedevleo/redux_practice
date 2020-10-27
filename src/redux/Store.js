@@ -1,7 +1,8 @@
-import {createStore} from 'redux';
-import cakeReducer from './cakes/CakeReducer';
+import {createStore,applyMiddleware} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import logger from 'redux-logger';
+import rootReducer from './RootReducer';
 
-
-const store = createStore(cakeReducer);
+const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(logger)));
 
 export default store;
